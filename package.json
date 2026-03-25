@@ -329,9 +329,9 @@
     "type": "module",
     "exports": {
         ".": {
+            "types": "./dist/esm/index.d.ts",
             "import": "./dist/esm/index.js",
-            "require": "./dist/cjs/index.js",
-            "types": "./dist/esm/index.d.ts"
+            "require": "./dist/cjs/index.js"
         }
     },
     "publishConfig": {
@@ -352,8 +352,8 @@
         "start": "npm run build && npm test"
     },
     "dependencies": {
-        "@noble/hashes": "^1.4.0",
-        "base-x": "^4.0.0",
+        "@noble/hashes": "^2.0.1",
+        "base-x": "^5.0.1",
         "buffer": "^6.0.3",
         "cbor-js": "^0.1.0",
         "crc": "^4.3.2",
@@ -361,14 +361,14 @@
     },
     "devDependencies": {
         "@semantic-release/commit-analyzer": "^13.0.1",
-        "@semantic-release/github": "^11.0.6",
-        "@semantic-release/npm": "^12.0.2",
+        "@semantic-release/github": "^12.0.6",
+        "@semantic-release/npm": "^13.1.5",
         "@semantic-release/release-notes-generator": "^14.1.0",
-        "chai": "^4.4.1",
+        "chai": "^6.2.2",
         "esbuild": "^0.27.4",
-        "mocha": "^10.2.0",
-        "semantic-release": "^24.2.9",
-        "tsx": "^4.16.2",
-        "typescript": "^5.5.4"
+        "mocha": "^11.7.5",
+        "semantic-release": "^25.0.3",
+        "tsx": "^4.21.0",
+        "typescript": "^6.0.2"
     }
 }

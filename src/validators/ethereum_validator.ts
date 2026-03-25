@@ -1,6 +1,7 @@
-import cryptoUtils from '../crypto/utils.js'
-import {Address} from '../types.js'
-import {getAddress} from '../helpers.js'
+import { keccak_256 } from '@noble/hashes/sha3.js'
+import { bytesToHex } from '@noble/hashes/utils.js'
+import { Address } from '../types.js'
+import { getAddress } from '../helpers.js'
 
 export default {
     isValidAddress: function (address: Address) {
@@ -22,7 +23,7 @@ export default {
         // Check each case
         address = address.replace('0x', '');
 
-        const addressHash = cryptoUtils.keccak256(address.toLowerCase());
+        const addressHash = bytesToHex(keccak_256(new TextEncoder().encode(address.toLowerCase())));
 
         for (let i = 0; i < 40; i++) {
             // The nth letter should be uppercase if the nth digit of casemap is 1
