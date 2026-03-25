@@ -1,9 +1,9 @@
-import {describe, it} from 'mocha'
-import {expect} from 'chai'
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
 
-import {Chain, NetworkType, validate, validateMemo} from '../src'
+import { Chain, NetworkType, validate, validateMemo } from '../src'
 // @ts-ignore
-import addresses, {TestAddress} from './addresses/addresses'
+import addresses, { TestAddress } from './addresses/addresses'
 
 function check(address: TestAddress, chain: Chain) {
     if (typeof address === 'string') {
@@ -16,12 +16,12 @@ function check(address: TestAddress, chain: Chain) {
 
 function valid(address: TestAddress, chain: Chain) {
     const valid = validate(address, chain);
-    expect({address, chain, valid}).to.deep.equal({address, chain, valid: true});
+    expect({ address, chain, valid }).to.deep.equal({ address, chain, valid: true });
 }
 
 function invalid(address: TestAddress, chain: Chain) {
     const valid = validate(address, chain);
-    expect({address, chain, valid}).to.deep.equal({address, chain, valid: false});
+    expect({ address, chain, valid }).to.deep.equal({ address, chain, valid: false });
 }
 
 function checkMemo(address: TestAddress, chain: Chain) {
@@ -38,7 +38,7 @@ function validMemo(memo: string | undefined, chain: Chain) {
         return
     }
     const valid = validateMemo(memo, chain);
-    expect({memo, chain, valid}).to.deep.equal({memo, chain, valid: true});
+    expect({ memo, chain, valid }).to.deep.equal({ memo, chain, valid: true });
 }
 
 function invalidMemo(memo: string | undefined, chain: Chain) {
@@ -46,7 +46,7 @@ function invalidMemo(memo: string | undefined, chain: Chain) {
         return
     }
     const valid = validateMemo(memo, chain);
-    expect({memo, chain, valid}).to.deep.equal({memo, chain, valid: false});
+    expect({ memo, chain, valid }).to.deep.equal({ memo, chain, valid: false });
 }
 
 interface TestCase {
@@ -119,6 +119,9 @@ const TestCases: Record<string, TestCase> = {
             'flare',
             'monad',
             'optimism',
+            'pol',
+            'polygon',
+            'matic',
             'sonic',
             'story',
         ],
@@ -183,6 +186,10 @@ const TestCases: Record<string, TestCase> = {
         testAddresses: 'tezos',
         exclude: ['btc', 'bch', 'btc-testnet', 'ltc-testnet', 'bch-testnet', 'doge', 'doge-testnet', 'ltc', 'tron', 'zcash'],
     },
+    'ton': {
+        alternatives: ['toncoin'],
+        testAddresses: 'ton',
+    },
     'tron': {
         alternatives: ['trc20'],
         testAddresses: 'tron',
@@ -198,7 +205,7 @@ const TestCases: Record<string, TestCase> = {
     }
 }
 
-describe('multichain address validator', function () {
+describe('anychain address validator', function () {
     it('should check valid addresses for chains', function () {
         for (const chain in TestCases) {
             for (const c of [chain, ...TestCases[chain].alternatives]) {
@@ -215,7 +222,7 @@ describe('multichain address validator', function () {
                         throw new Error(`No test testnet addresses for chain '${chain}'`)
                     }
                     for (const address of addresses[TestCases[chain].testnet.testAddresses]) {
-                        checkMemo(address, {chain: c, networkType: NetworkType.TestNet})
+                        checkMemo(address, { chain: c, networkType: NetworkType.TestNet })
                     }
                 }
             }

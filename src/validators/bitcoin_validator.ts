@@ -79,8 +79,8 @@ export enum SegwitVersion {
 interface BTCValidatorOpts {
     addressTypes: string[],
     expectedLength?: number,
-    bech32Hrp?: [string],
-    allowedSegwitVersions?: [number],
+    bech32Hrp?: string[],
+    allowedSegwitVersions?: SegwitVersion[],
     hashFunction?: 'blake256' | 'blake256keccak256' | 'keccak256' | 'sha256',
     regex?: RegExp,
 }

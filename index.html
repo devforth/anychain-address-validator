@@ -1,12 +1,14 @@
 <html>
-    <body>
-        <script src="./dist/multichain-address-validator.bundle.min.js"></script>
-        <script type="module">
-            const valid = MCAV.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
-            if (valid)
-                console.log('This is a valid address');
-            else
-                console.log('Address INVALID');
-        </script>
-    </body>
+
+<body>
+    <script src="./dist/anychain-address-validator.bundle.min.js"></script>
+    <script type="module">
+        const valid = MCAV.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
+        if (valid)
+            console.log('This is a valid address');
+        else
+            console.log('Address INVALID');
+    </script>
+</body>
+
 </html>

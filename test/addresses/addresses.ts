@@ -24,6 +24,7 @@ import solana from './solana.json'
 import sui from './sui.json'
 import tezos from './tezos.json'
 import tron from './tron.json'
+import ton from './ton.json'
 import xlm from './xlm.json'
 import zcash from './zcash.json'
 
@@ -55,6 +56,7 @@ const testAddresses: Record<string, TestAddress[]> = {
     sui,
     solana,
     tezos,
+    ton,
     tron,
     xlm,
     zcash,

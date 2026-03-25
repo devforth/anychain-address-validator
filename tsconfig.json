@@ -7,7 +7,7 @@
         "module": "NodeNext",
         "rootDir": "./src",
         "resolveJsonModule": true,
-        "moduleResolution": "node",
+        "moduleResolution": "NodeNext",
         "declaration": true,
         "outDir": "./dist",
         "esModuleInterop": true,

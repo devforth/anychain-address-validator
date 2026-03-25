@@ -1,7 +1,8 @@
 [
     "rG1QQv2nh2gr7RCZ1P8YYcBUKCCN633jCn",
-    "rG1QQv2nh2gr7RCZ1P8YYcBUKCCN633jCn",
     "r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV",
+    "XVLhHMPHU98es4dbozjVtdWzVrDjtV18pX8yuPT7y4xaEHi",
+    "T7oKJ3q7s94kDH6tpkBowhetT1JKfcfdSCmAXbS75iATyLD",
     "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
     {
         "address": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
@@ -16,5 +17,13 @@
         "address": "rDTXLQ7ZKZVKz33zJbHjgVShjsBnqMBhmN",
         "memo": "non-numeric-memo",
         "invalidMemo": true
+    },
+    {
+        "address": "XVLhHMPHU98es4dbozjVtdWzVrDjtV18pX8yuPT7y4xaEHj",
+        "invalid": true
+    },
+    {
+        "address": "T70KJ3q7s94kDH6tpkBowhetT1JKfcfdSCmAXbS75iATyLD",
+        "invalid": true
     }
 ]

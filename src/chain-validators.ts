@@ -22,8 +22,9 @@ import {
     TronValidator,
     XLMValidator,
     ZcashValidator,
+    TonValidator,
 } from './validators/index.js'
-import {SegwitVersion} from './validators/bitcoin_validator'
+import {SegwitVersion} from './validators/bitcoin_validator.js'
 
 
 type ChainValidators = Record<string, {
@@ -43,12 +44,12 @@ const chainValidators: ChainValidators = {
             mainnet: BTCValidator({
                 addressTypes: ['00', '05'],
                 bech32Hrp: ['bc'],
-                allowedSegwitVersions: [SegwitVersion.NativeSegwit],
+                allowedSegwitVersions: [SegwitVersion.NativeSegwit, SegwitVersion.TapRoot],
             }),
             testnet: BTCValidator({
                 addressTypes: ['6f', 'c4', '3c', '26'],
                 bech32Hrp: ['tb'],
-                allowedSegwitVersions: [SegwitVersion.NativeSegwit],
+                allowedSegwitVersions: [SegwitVersion.NativeSegwit, SegwitVersion.TapRoot],
             }),
         },
     },
@@ -100,6 +101,9 @@ const chainValidators: ChainValidators = {
             'erc20',
             'flare',
             'optimism',
+            'pol',
+            'polygon',
+            'matic',
             'sonic',
             'story',
         ],
@@ -115,12 +119,12 @@ const chainValidators: ChainValidators = {
             mainnet: BTCValidator({
                 addressTypes: ['30', '32'],
                 bech32Hrp: ['ltc'],
-                allowedSegwitVersions: [SegwitVersion.NativeSegwit],
+                allowedSegwitVersions: [SegwitVersion.NativeSegwit, SegwitVersion.TapRoot],
             }),
             testnet: BTCValidator({
                 addressTypes: ['6f', 'c4', '3a'],
                 bech32Hrp: ['tltc'],
-                allowedSegwitVersions: [SegwitVersion.NativeSegwit],
+                allowedSegwitVersions: [SegwitVersion.NativeSegwit, SegwitVersion.TapRoot],
             })
         }
     },
@@ -150,6 +154,10 @@ const chainValidators: ChainValidators = {
         validator: SolanaValidator,
     },
     sui: {validator: MoveValidator},
+    ton: {
+        alternatives: ['toncoin'],
+        validator: TonValidator,
+    },
     tron: {
         alternatives: ['trc20'],
         validator: TronValidator(),

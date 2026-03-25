@@ -8,6 +8,7 @@ const ALLOWED_CHARS = 'rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxy
 
 const codec = baseX(ALLOWED_CHARS);
 const regexp = new RegExp('^r[' + ALLOWED_CHARS + ']{27,35}$');
+const xRegexp = new RegExp('^X[' + ALLOWED_CHARS + ']{46}$|^T[' + ALLOWED_CHARS + ']{46}$');
 
 export default {
     /**
@@ -17,7 +18,7 @@ export default {
         const addr = getAddress(address)
         const memo = getMemo(address)
 
-        const validAddress = regexp.test(addr) && this.verifyChecksum(addr);
+        const validAddress = (regexp.test(addr) || xRegexp.test(addr)) && this.verifyChecksum(addr);
 
         return validAddress && this.verifyMemo(memo)
     },

@@ -1,18 +1,16 @@
-# multichain address validator
+# anychain address validator
 Simple blockchain address validator for validating Bitcoin and other blockchain addresses **Node.js and browser**.
-
-[![Build Status](https://travis-ci.org/christsim/multicchain-address-validator.svg?branch=master)](https://travis-ci.org/christsim/multichain-address-validator)
 
 ## Installation
 
 ### NPM
 ```
-npm install multichain-address-validator
+npm install @devforth/anychain-address-validator
 ```
 
 ### Browser
 ```html
-<script src="dist/multichain-address-validator.bundle.min.js"></script>
+<script src="dist/anychain-address-validator.bundle.min.js"></script>
 ```
 
 ## API
@@ -33,7 +31,7 @@ npm install multichain-address-validator
 * Cardano: `cardano`, `ada`
 * Dogecoin: `dogecoin`, `doge`
 * EOS: `eos`
-* Etherum: `ethereum`, `eth`, `erc20`, `flare`, `avalanche`, `avalanche-c`, `bsc`, `bnb`, `binance`, `sonic`, `berachain`, `story`
+* Ethereum: `ethereum`, `eth`, `erc20`, `flare`, `avalanche`, `avalanche-c`, `bsc`, `bnb`, `binance`, `sonic`, `berachain`, `story`, `polygon`, `pol`, `matic`
 * Litecoin: `litecoin`, `ltc`
 * Monero: `monero`
 * Nano: `nano`
@@ -43,6 +41,7 @@ npm install multichain-address-validator
 * Sia: `sia`
 * Solana: `solana`, `spl`
 * Tezos: `tezos`
+* Ton: `ton`
 * Tron: `tron`, `trc20`
 * XLM: `xlm`, `stellar`
 
@@ -50,7 +49,7 @@ npm install multichain-address-validator
 
 #### Node
 ```javascript
-import { validate } from 'multichain-address-validator'
+import { validate } from '@devforth/anychain-address-validator'
 
 const valid = validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
 if (valid)
@@ -62,7 +61,7 @@ else
 ```
 
 ```javascript
-import { validate } from 'multichain-address-validator'
+import { validate } from '@devforth/anychain-address-validator'
 
 const valid = validate('0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB', 'ethereum');
 if (valid)
@@ -74,7 +73,7 @@ else
 ```
 
 ```javascript
-import { validate } from 'multichain-address-validator'
+import { validate } from '@devforth/anychain-address-validator'
 
 const valid = validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', { chain: 'litecoin', networkType: 'testnet' });
 if (valid)

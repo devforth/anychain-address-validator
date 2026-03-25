@@ -1,7 +1,7 @@
 {
-    "name": "multichain-address-validator",
-    "description": "Multichain address validator for Bitcoin and other blockchains.",
-    "version": "0.8.0",
+    "name": "@devforth/anychain-address-validator",
+    "description": "Anychain address validator for Bitcoin and other blockchains.",
+    "version": "0.0.1",
     "keywords": [
         "0x",
         "zrx",
@@ -316,12 +316,12 @@
         "ZenCash",
         "zen"
     ],
-    "author": "Chris <28301107+christsim@users.noreply.github.com>",
-    "homepage": "https://github.com/christsim/multichain-address-validator",
+    "author": "devforth.io",
+    "homepage": "https://github.com/devforth/anychain-address-validator",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/christsim/multichain-address-validator.git"
+        "url": "https://github.com/devforth/anychain-address-validator.git"
     },
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -334,6 +334,9 @@
             "types": "./dist/esm/index.d.ts"
         }
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "engines": {
         "node": ">=18.0.0"
     },
@@ -341,7 +344,8 @@
     "scripts": {
         "build:esm": "tsc -p tsconfig.esm.json",
         "build:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
-        "build": "npm run clean && npm run build:esm && npm run build:cjs",
+        "build:bundle": "esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=MCAV --outfile=dist/anychain-address-validator.bundle.min.js",
+        "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:bundle",
         "clean": "npx rimraf dist",
         "test": "mocha --import=tsx test/**.test.ts",
         "start": "npm run build && npm test"
@@ -355,8 +359,14 @@
         "lodash.isequal": "^4.5.0"
     },
     "devDependencies": {
+        "@semantic-release/commit-analyzer": "^13.0.1",
+        "@semantic-release/github": "^11.0.6",
+        "@semantic-release/npm": "^12.0.2",
+        "@semantic-release/release-notes-generator": "^14.1.0",
         "chai": "^4.4.1",
+        "esbuild": "^0.27.4",
         "mocha": "^10.2.0",
+        "semantic-release": "^24.2.9",
         "tsx": "^4.16.2",
         "typescript": "^5.5.4"
     }
