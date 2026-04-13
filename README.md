@@ -31,17 +31,17 @@ npm install @devforth/anychain-address-validator
 * Cardano: `cardano`, `ada`
 * Dogecoin: `dogecoin`, `doge`
 * EOS: `eos`
-* Ethereum: `ethereum`, `eth`, `erc20`, `flare`, `avalanche`, `avalanche-c`, `bsc`, `bnb`, `binance`, `sonic`, `berachain`, `story`, `polygon`, `pol`, `matic`
+* Ethereum: `ethereum`, `eth`, `erc20`, `flare`, `avalanche`, `avalanche-c`, `bsc`, `bnb`, `binance`, `sonic`, `berachain`, `story`, `polygon`, `pol`, `matic`, `binance smart chain`
 * Litecoin: `litecoin`, `ltc`
 * Monero: `monero`
 * Nano: `nano`
 * NEM: `nem`
 * Polkadot: `polkadot`
-* Ripple: `ripple', `xrp`
+* Ripple: `ripple`, `xrp`
 * Sia: `sia`
 * Solana: `solana`, `spl`
 * Tezos: `tezos`
-* Ton: `ton`
+* Ton: `ton`, `toncoin`
 * Tron: `tron`, `trc20`
 * XLM: `xlm`, `stellar`
 

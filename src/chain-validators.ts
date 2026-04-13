@@ -1,4 +1,4 @@
-import type {Chain, Validator} from './types.js'
+import type { Chain, Validator } from './types.js'
 import { NetworkType } from './types.js'
 
 import {
@@ -24,7 +24,7 @@ import {
     ZcashValidator,
     TonValidator,
 } from './validators/index.js'
-import {SegwitVersion} from './validators/bitcoin_validator.js'
+import { SegwitVersion } from './validators/bitcoin_validator.js'
 
 
 type ChainValidators = Record<string, {
@@ -36,8 +36,8 @@ type ChainValidators = Record<string, {
 }>
 
 const chainValidators: ChainValidators = {
-    algorand: {validator: AlgorandValidator},
-    aptos: {validator: MoveValidator},
+    algorand: { validator: AlgorandValidator },
+    aptos: { validator: MoveValidator },
     bitcoin: {
         alternatives: ['btc', 'omni'],
         validator: {
@@ -79,11 +79,11 @@ const chainValidators: ChainValidators = {
     doge: {
         alternatives: ['dogecoin'],
         validator: {
-            mainnet: BTCValidator({addressTypes: ['1e', '16']}),
-            testnet: BTCValidator({addressTypes: ['71', 'c4']}),
+            mainnet: BTCValidator({ addressTypes: ['1e', '16'] }),
+            testnet: BTCValidator({ addressTypes: ['71', 'c4'] }),
         }
     },
-    eos: {validator: EOSValidator},
+    eos: { validator: EOSValidator },
     ethereum: {
         alternatives: [
             'arbitrum',
@@ -106,6 +106,7 @@ const chainValidators: ChainValidators = {
             'matic',
             'sonic',
             'story',
+            'binance smart chain',
         ],
         validator: ETHValidator
     },
@@ -138,9 +139,9 @@ const chainValidators: ChainValidators = {
         alternatives: ['mon'],
         validator: ETHValidator,
     },
-    nem: {validator: NemValidator},
-    nano: {validator: NanoValidator},
-    polkadot: {validator: PolkadotValidator},
+    nem: { validator: NemValidator },
+    nano: { validator: NanoValidator },
+    polkadot: { validator: PolkadotValidator },
     ripple: {
         alternatives: ['xrp'],
         validator: RippleValidator,
@@ -150,19 +151,19 @@ const chainValidators: ChainValidators = {
         validator: SiaValidator
     },
     solana: {
-        alternatives: ['sol','spl'],
+        alternatives: ['sol', 'spl'],
         validator: SolanaValidator,
     },
-    sui: {validator: MoveValidator},
+    sui: { validator: MoveValidator },
     ton: {
-        alternatives: ['toncoin'],
+        alternatives: ['toncoin', 'ton'],
         validator: TonValidator,
     },
     tron: {
         alternatives: ['trc20'],
         validator: TronValidator(),
     },
-    tezos: {validator: TezosValidator},
+    tezos: { validator: TezosValidator },
     xlm: {
         alternatives: ['stellar', 'stellarlumens'],
         validator: XLMValidator,
