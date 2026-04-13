@@ -28,7 +28,11 @@ import ton from './ton.json'
 import xlm from './xlm.json'
 import zcash from './zcash.json'
 
-export type TestAddress = string | { address: string, memo?: string } & { invalid?: boolean, invalidMemo?: boolean }
+export type TestAddress = string | { address: string, memo?: string } & {
+    invalid?: boolean,
+    invalidMemo?: boolean,
+    caseSensitive?: boolean,
+}
 
 const testAddresses: Record<string, TestAddress[]> = {
     aptos,

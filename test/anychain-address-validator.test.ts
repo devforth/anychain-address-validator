@@ -15,12 +15,14 @@ function check(address: TestAddress, chain: Chain) {
 }
 
 function valid(address: TestAddress, chain: Chain) {
-    const valid = validate(address, chain);
+    const opts = typeof address === 'string' ? undefined : { caseSensitive: address.caseSensitive }
+    const valid = validate(address, chain, opts);
     expect({ address, chain, valid }).to.deep.equal({ address, chain, valid: true });
 }
 
 function invalid(address: TestAddress, chain: Chain) {
-    const valid = validate(address, chain);
+    const opts = typeof address === 'string' ? undefined : { caseSensitive: address.caseSensitive }
+    const valid = validate(address, chain, opts);
     expect({ address, chain, valid }).to.deep.equal({ address, chain, valid: false });
 }
 
@@ -245,5 +247,4 @@ describe('anychain address validator', function () {
         }
     })
 })
-
 

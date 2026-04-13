@@ -9,7 +9,7 @@ export type Chain = string | {
 }
 
 export interface Validator {
-    isValidAddress(address: Address): boolean
+    isValidAddress(address: Address, caseSensitive?: boolean): boolean
     isValidMemo?(memo: string): boolean
 }
 

@@ -4,31 +4,30 @@ import { Address } from '../types.js'
 import { getAddress } from '../helpers.js'
 
 export default {
-    isValidAddress: function (address: Address) {
+    isValidAddress: function (address: Address, caseSensitive = false) {
         const addr = getAddress(address)
         if (!/^0x[0-9a-fA-F]{40}$/.test(addr)) {
             // Check if it has the basic requirements of an address
             return false;
         }
 
-        if (/^0x[0-9a-f]{40}$/.test(addr) || /^0x?[0-9A-F]{40}$/.test(addr)) {
-            // If it's all small caps or all caps, return true
-            return true;
+        // Otherwise check each case
+        return this.verifyChecksum(addr, caseSensitive);
+    },
+    verifyChecksum: function (address: string, caseSensitive: boolean) {
+        address = address.replace('0x', '');
+        if (!/^[0-9a-fA-F]{40}$/.test(address)) {
+            return false;
         }
 
-        // Otherwise check each case
-        return this.verifyChecksum(addr);
-    },
-    verifyChecksum: function (address: string) {
-        // Check each case
-        address = address.replace('0x', '');
-
-        const addressHash = bytesToHex(keccak_256(new TextEncoder().encode(address.toLowerCase())));
-
+        const normalizedAddress = address.toLowerCase();
+        const addressHash = bytesToHex(keccak_256(new TextEncoder().encode(normalizedAddress)));
         for (let i = 0; i < 40; i++) {
-            // The nth letter should be uppercase if the nth digit of casemap is 1
-            if ((parseInt(addressHash[i], 16) > 7 && address[i].toUpperCase() !== address[i]) ||
-                (parseInt(addressHash[i], 16) <= 7 && address[i].toLowerCase() !== address[i])) {
+            const expectedChar = parseInt(addressHash[i], 16) > 7
+                ? normalizedAddress[i].toUpperCase()
+                : normalizedAddress[i];
+
+            if (caseSensitive ? address[i] !== expectedChar : address[i].toLowerCase() !== expectedChar.toLowerCase()) {
                 return false;
             }
         }
